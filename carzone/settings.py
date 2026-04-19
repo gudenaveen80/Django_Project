@@ -174,7 +174,7 @@ EMAIL_USE_TLS = True
 
 
 # Whitenoise settings
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.StaticFilesStorage'
 
 # Cloudinary Settings
 CLOUDINARY_STORAGE = {
