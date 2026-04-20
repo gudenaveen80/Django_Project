@@ -18,3 +18,14 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.email
+    
+class ContactMessage(models.Model):
+    full_name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=100)
+    subject = models.CharField(max_length=200)
+    number = models.CharField(max_length=20)
+    message = models.TextField()
+    created_at = models.DateTimeField(blank=True, default=datetime.now)
+
+    def __str__(self):
+        return f"{self.full_name} - {self.subject}"

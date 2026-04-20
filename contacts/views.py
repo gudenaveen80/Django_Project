@@ -3,6 +3,7 @@ from django.contrib import messages
 from .models import Contact
 from django.core.mail import send_mail
 from django.contrib.auth.models import User
+from .models import Contact, ContactMessage
 
 
 # Create your views here.
@@ -38,3 +39,23 @@ def inquiry(request):
         contact.save()
         messages.success(request, 'Your request has been submitted, we will get back to you shortly.')
         return redirect('/cars/'+car_id)
+    
+def contact(request):
+    if request.method == 'POST':
+        full_name = request.POST['full_name']
+        email = request.POST['email']
+        subject = request.POST['subject']
+        number = request.POST['number']
+        message = request.POST['message']
+
+        contact_message = ContactMessage(
+            full_name=full_name,
+            email=email,
+            subject=subject,
+            number=number,
+            message=message
+        )
+        contact_message.save()
+        messages.success(request, 'Your message has been sent successfully!')
+        return redirect('/contact')
+    return render(request, 'contacts/contact.html')
