@@ -58,4 +58,4 @@ def contact(request):
         contact_message.save()
         messages.success(request, 'Your message has been sent successfully!')
         return redirect('/contact')
-    return render(request, 'contacts/contact.html')
+    return render(request, 'pages/contact.html')
