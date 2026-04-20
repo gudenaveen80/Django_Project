@@ -1,6 +1,6 @@
 from django.db import models
 from datetime import datetime
-from multiselectfield import MultiSelectField
+
 
 # Create your models here.
 class Car(models.Model):
@@ -101,7 +101,7 @@ class Car(models.Model):
     car_photo_2 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     car_photo_3 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     car_photo_4 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
-    features = MultiSelectField(choices=features_choices)
+    features = models.CharField(max_length=255, blank=True)
     body_style = models.CharField(max_length=100)
     engine = models.CharField(max_length=100)
     transmission = models.CharField(max_length=100)
