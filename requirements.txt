@@ -1,4 +1,4 @@
-﻿Django==4.2.0
+Django==3.2.25
 cloudinary==1.44.2
 django-cloudinary-storage==0.3.0
 dj-database-url==2.1.0
