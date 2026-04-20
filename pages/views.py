@@ -44,6 +44,15 @@ def contact(request):
         subject = request.POST['subject']
         phone = request.POST['phone']
         message = request.POST['message']
+        
+        send_mail(
+            subject,
+            'From: ' + name + '\nPhone: ' + phone + '\nMessage: ' + message,
+            email,
+            ['gudenavee80@gmail.com'],  # ← put your email here
+            fail_silently=False,
+        )
+        
         messages.success(request, 'Thank you for contacting us. We will get back to you shortly')
         return redirect('contact')
     return render(request, 'pages/contact.html')
